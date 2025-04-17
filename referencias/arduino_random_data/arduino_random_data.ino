@@ -43,7 +43,7 @@ void noise() {
 }
 
 void setup() {
-  Serial.begin(19200);
+  Serial.begin(115200);
   randomSeed(analogRead(0));
   pinMode(LED_BUILTIN, OUTPUT);
 }

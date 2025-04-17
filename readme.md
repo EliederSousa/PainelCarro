@@ -6,6 +6,9 @@ Além da estrutura mecânica e elétrica, o carro usa sensores que permitem o mo
 
 Este repositório guarda o projeto do painel do carro utilizado pela UPM na competição.  
 
+<img src="./referencias/screenshot-1.jpg" alt="Tela principal" style="width:500px;"/>
+<img src="./referencias/screenshot-2.jpg" alt="Histórico" style="width:500px;"/>
+
 
 ## Estrutura do repositório 
 

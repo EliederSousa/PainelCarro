@@ -230,7 +230,12 @@ public class TerminalFragment extends Fragment implements SerialInputOutputManag
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().registerReceiver(broadcastReceiver, new IntentFilter(INTENT_ACTION_GRANT_USB));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requireContext().registerReceiver(broadcastReceiver, new IntentFilter(UsbManager.ACTION_USB_DEVICE_ATTACHED), Context.RECEIVER_NOT_EXPORTED);
+        } else {
+            requireContext().registerReceiver(broadcastReceiver, new IntentFilter(UsbManager.ACTION_USB_DEVICE_ATTACHED));
+        }
+
         if(usbPermission == UsbPermission.Unknown || usbPermission == UsbPermission.Granted)
             mainLooper.post(this::connect);
         renderData();
@@ -306,7 +311,7 @@ public class TerminalFragment extends Fragment implements SerialInputOutputManag
             }
             deviceId = device.getDeviceId();
             portNum = 0;
-            baudRate = 19200;
+            baudRate = 115200;
             withIoManager = true;
         }
 

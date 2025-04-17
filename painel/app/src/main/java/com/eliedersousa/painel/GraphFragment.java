@@ -3,6 +3,7 @@ package com.eliedersousa.painel;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -147,7 +148,6 @@ public class GraphFragment extends Fragment implements FileListAdapter.OnItemCli
             voltArray.clear();
             wattArray.clear();
             tempArray.clear();
-
             while ((line = bufferedReader.readLine()) != null) {
                 String[] values = line.split(",");
                 if (values.length == 6) {
